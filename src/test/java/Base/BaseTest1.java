@@ -5,6 +5,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -28,8 +30,10 @@ public class BaseTest1 {
     WebElement element;
 
     public BaseTest1 (){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        WebDriver driver = new ChromeDriver(options);
 
-        driver = new EdgeDriver();
     }
 
     @BeforeTest
@@ -37,9 +41,9 @@ public class BaseTest1 {
         Runtime.getRuntime().exec(
                 "cmd /c taskkill /f /im chromedriver.exe");
         // ChromeOptions options = new ChromeOptions();
-        // options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
-        // WebDriver driver = new ChromeDriver(options);
-        // System.setProperty("webdriver.chrome.driver", "C:/Users/sandeep.s8/IdeaProjects/test/chromedriver.exe");
+         //options.setBinary("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome");
+         //WebDriver driver = new ChromeDriver(options);
+         //System.setProperty("webdriver.chrome.driver", "C:/Users/sandeep.s8/IdeaProjects/test/chromedriver.exe");
 
         //driver = new EdgeDriver();
         //To maximize browser
